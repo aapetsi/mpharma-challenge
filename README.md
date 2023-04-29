@@ -1,4 +1,3 @@
-
 # ICDC API
 
 ## Prerequisites
@@ -21,7 +20,6 @@
 
 ## Getting started
 
-
 Once you have the libraries and dependencies above installed, do the following:
 
 1. Initialize the database with the following: `python3 init_db.py`
@@ -43,7 +41,6 @@ They both are configured as `test` and `spec` tasks with `rake`.
 3. Commit your changes using `git commit -am 'Some message outlining your changes'`.
 4. Push feature branch to Github using `git push origin <feature-branch-name>`.
 5. Send a Pull Request on Github.
-
 
 ## Guidelines
 
