@@ -24,6 +24,9 @@
 Once you have the libraries and dependencies above installed, run the following command to start the flask server
 `python3 -m flask --app ./app.py run --debug`
 
+To run the tests run the following code:
+`python3 -m pytest`
+
 **Additional information:**
 
 1. Make sure your postgres server is up and running
