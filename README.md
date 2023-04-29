@@ -21,9 +21,12 @@
 
 ## Getting started
 
-If you have [Docker](https://www.docker.com/) installed on your system, see [Docker](#docker) section below for quick start.
+Once you have the libraries and dependencies above installed, run the following command to start the flask server
+`python3 -m flask --app ./app.py run --debug`
 
+**Additional information:**
 
+1. Make sure your postgres server is up and running
 
 ## Contributing
 

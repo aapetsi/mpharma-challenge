@@ -1,9 +1,7 @@
 import psycopg2
 from flask import Flask, jsonify, request
-import csv
 import os
 import pandas as pd
-from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
