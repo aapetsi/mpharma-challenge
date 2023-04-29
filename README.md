@@ -11,6 +11,7 @@
 ## Dependencies
 
 - [Postgres](https://www.postgresql.org/): Postgres is the target database dialect.
+- [Mailhog](https://github.com/mailhog/MailHog): Spins up a local mail server.
 
 ## Libraries
 
