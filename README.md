@@ -1,4 +1,4 @@
-# ICDC API
+# ICD API
 
 ## Prerequisites
 

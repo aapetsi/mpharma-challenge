@@ -5,6 +5,7 @@ import psycopg2
 from flask import Flask, jsonify, request
 import os
 import pandas as pd
+from mailer import send_mail
 
 app = Flask(__name__)
 
@@ -136,4 +137,7 @@ def upload():
         conn.commit()
         new_data.append(DiagnosisCode.to_dict(r))
 
-    return jsonify(new_data)
+    if len(new_data) > 0:
+        send_mail("john@example.com")
+
+    return jsonify(new_data), 201
