@@ -16,7 +16,8 @@
 
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/): The API service is build using python's flask framework.
 - [Pandas](https://pandas.pydata.org/): We are using pandas to process csv file uploads.
-- [psycopg2](https://pypi.org/project/psycopg2/): We using pscopg2 as our database adapter.
+- [psycopg2](https://pypi.org/project/psycopg2/): We are using psycopg2 as our database adapter.
+- [pytest](https://docs.pytest.org/en/7.3.x/): We are making use of pytest to test the API endpoints
 
 ## Getting started
 
