@@ -1,5 +1,8 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import pytest
-from app import app, conn
+from app import app
 import json
 from io import BytesIO
 

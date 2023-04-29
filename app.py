@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv
+
 import psycopg2
 from flask import Flask, jsonify, request
 import os
@@ -6,8 +9,9 @@ import pandas as pd
 app = Flask(__name__)
 
 conn = psycopg2.connect(host='localhost',
-                        database='mpharma-dev',
-                        user='apetsiampiah')
+                        database=os.environ['DB_DATABASE_NAME'],
+                        user=os.environ['DB_USERNAME']
+                        )
 
 
 class DiagnosisCode:
