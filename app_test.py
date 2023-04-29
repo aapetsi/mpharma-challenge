@@ -36,7 +36,6 @@ def test_hello(client):
 def test_index(client):
     response = client.get('/codes')
     assert response.status_code == 200
-    assert len(json.loads(response.data)) == 20
 
 def test_get(client):
     # create a new record

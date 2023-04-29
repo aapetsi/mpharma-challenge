@@ -10,7 +10,8 @@ app = Flask(__name__)
 
 conn = psycopg2.connect(host='localhost',
                         database=os.environ['DB_DATABASE_NAME'],
-                        user=os.environ['DB_USERNAME']
+                        user=os.environ['DB_USERNAME'],
+                        password=os.environ['DB_PASSWORD']
                         )
 
 
