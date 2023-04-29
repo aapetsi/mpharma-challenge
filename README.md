@@ -21,15 +21,17 @@
 
 ## Getting started
 
-Once you have the libraries and dependencies above installed, run the following command to start the flask server
-`python3 -m flask --app ./app.py run --debug`
 
-To run the tests run the following code:
-`python3 -m pytest`
+Once you have the libraries and dependencies above installed, do the following:
+
+1. Initialize the database with the following: `python3 init_db.py`
+2. Run: `python3 -m flask --app ./app.py run --debug` to start the development server in debug mode
+3. To run the test suites, run the following: `python3 -m pytest`
 
 **Additional information:**
 
 1. Make sure your postgres server is up and running
+2. Depending on your local installation of `python`, you can run the commands with just `python <command>`
 
 ## Contributing
 
@@ -42,15 +44,6 @@ They both are configured as `test` and `spec` tasks with `rake`.
 4. Push feature branch to Github using `git push origin <feature-branch-name>`.
 5. Send a Pull Request on Github.
 
-## Docker
-
-You can also get started with development quickly using [Docker](https://www.docker.com/).
-First you need to authenticate with Github's container registry ([see link here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)) and follow below steps:
-
-1. Clone this repository locally using `git clone https://github.com/swipe/swipe.git`.
-2. Run `docker-compose up` to start the application.
-3. Run database migrations using `docker-compose exec -T app rails db:migrate`.
-4. To lint code and run test cases, run `docker-compose exec -T app rake test` and `docker-compose exec -T app rake spec` respectively.
 
 ## Guidelines
 
