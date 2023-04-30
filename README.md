@@ -31,6 +31,9 @@ You can also get started with development quickly using [Docker](https://www.doc
 3. Run `docker compose up api`. A development server will be served on `http://127.0.0.1:5000`
 4. Additionally you can run the tests using `docker compose up api-test`
 
+
+## Local Setup
+
 Once you have the libraries and dependencies above installed, do the following:
 
 1. Create a .env file based on the `.env.example` file and update it with the correct credentials
