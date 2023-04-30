@@ -112,7 +112,7 @@ def test_upload(client):
     response = client.post('/upload', data=dict(sample_upload=csv_file), content_type='multipart/form-data')
 
     # Check the response status code
-    assert response.status_code == 200
+    assert response.status_code == 201
 
     # Check the response data
     data = json.loads(response.data)

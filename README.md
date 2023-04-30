@@ -52,4 +52,6 @@ Use the following guides for getting things done, programming well, and programm
 - [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
 - [Coding Style - Python](https://github.com/thoughtbot/guides/tree/main/python)
 
-## Deployment
+## API Documentation
+
+- [Click here to view example queries and responses for the API](https://documenter.getpostman.com/view/3763588/2s93eSZbAu)
