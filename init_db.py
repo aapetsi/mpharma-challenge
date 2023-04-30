@@ -21,7 +21,9 @@ cur.execute('CREATE TABLE diagnosis_codes (id serial PRIMARY KEY,'
             'category_title VARCHAR NOT NULL,'
             'version_number INT NOT NULL DEFAULT 10 );')
 
-cur.execute("INSERT INTO diagnosis_codes (category_code, diagnosis_code, full_code, abbreviated_description, full_description, category_title) VALUES ('A0', '1234', 'A01234', 'Comma-ind anal ret', 'Comma-induced anal retention', 'Malignant neoplasm of anus and anal canal')")
+cur.execute(
+    "INSERT INTO diagnosis_codes (category_code, diagnosis_code, full_code, abbreviated_description, full_description, category_title) VALUES ('A0', '1234', 'A01234', 'Comma-ind anal ret', 'Comma-induced anal retention', 'Malignant neoplasm of anus and anal canal')"
+)
 
 conn.commit()
 

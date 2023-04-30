@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+
 load_dotenv()
 
 import pytest
@@ -9,33 +10,39 @@ from io import BytesIO
 
 @pytest.fixture
 def client():
-  app.config["TESTING"] = True
-  with app.test_client() as client:
-    yield client
+    app.config["TESTING"] = True
+    with app.test_client() as client:
+        yield client
+
 
 def create_record(client):
-  # create record
-  record_to_create = {
+    # create record
+    record_to_create = {
         "category_code": "A00",
         "diagnosis_code": "A000",
         "full_code": "A00.0",
-        "abbreviated_description": "Cholera due to Vibrio cholerae 01, biovar cholerae",
-        "full_description": "Cholera due to Vibrio cholerae 01, biovar cholerae",
+        "abbreviated_description":
+        "Cholera due to Vibrio cholerae 01, biovar cholerae",
+        "full_description":
+        "Cholera due to Vibrio cholerae 01, biovar cholerae",
         "category_title": "Cholera"
     }
-  response = client.post('/codes', json=record_to_create)
-  assert response.status_code == 200
-  new_record_id = json.loads(response.data)['id']
-  return new_record_id
+    response = client.post('/codes', json=record_to_create)
+    assert response.status_code == 200
+    new_record_id = json.loads(response.data)['id']
+    return new_record_id
+
 
 def test_hello(client):
     response = client.get('/')
     assert response.status_code == 200
     assert json.loads(response.data)['message'] == "Server is running 🚀"
 
+
 def test_index(client):
     response = client.get('/codes')
     assert response.status_code == 200
+
 
 def test_get(client):
     # create a new record
@@ -46,10 +53,12 @@ def test_get(client):
     assert response.status_code == 200
     assert json.loads(response.data)['id'] == new_record_id
 
+
 def test_get_not_found(client):
     response = client.get('/codes/999')
     assert response.status_code == 404
     assert json.loads(response.data)['message'] == 'Record not found'
+
 
 def test_delete(client):
     new_record_id = create_record(client)
@@ -57,10 +66,12 @@ def test_delete(client):
     assert response.status_code == 200
     assert json.loads(response.data)['message'] == 'Record deleted'
 
+
 def test_delete_not_found(client):
     response = client.delete('/codes/999')
     assert response.status_code == 404
     assert json.loads(response.data)['message'] == 'Record not found'
+
 
 def test_update(client):
     new_record_id = create_record(client)
@@ -74,7 +85,10 @@ def test_update(client):
     }
     response = client.put(f'/codes/{new_record_id}', json=data)
     assert response.status_code == 200
-    assert json.loads(response.data)['abbreviated_description'] == data['abbreviated_description']
+    assert json.loads(
+        response.data
+    )['abbreviated_description'] == data['abbreviated_description']
+
 
 def test_update_not_found(client):
     data = {
@@ -89,6 +103,7 @@ def test_update_not_found(client):
     assert response.status_code == 404
     assert json.loads(response.data)['message'] == 'Record not found'
 
+
 def test_create(client):
     data = {
         "category_code": "A1",
@@ -100,7 +115,10 @@ def test_create(client):
     }
     response = client.post('/codes', json=data)
     assert response.status_code == 200
-    assert json.loads(response.data)['abbreviated_description'] == data['abbreviated_description']
+    assert json.loads(
+        response.data
+    )['abbreviated_description'] == data['abbreviated_description']
+
 
 def test_upload(client):
     # Create a temporary file for testing
@@ -109,7 +127,9 @@ def test_upload(client):
     csv_file.name = 'sample_upload.csv'
 
     # Send a POST request to the endpoint with the test CSV file
-    response = client.post('/upload', data=dict(sample_upload=csv_file), content_type='multipart/form-data')
+    response = client.post('/upload',
+                           data=dict(sample_upload=csv_file),
+                           content_type='multipart/form-data')
 
     # Check the response status code
     assert response.status_code == 201
@@ -122,5 +142,5 @@ def test_upload(client):
     assert data[0]['full_code'] == 'A01234'
     assert data[0]['abbreviated_description'] == 'Comma-ind anal ret'
     assert data[0]['full_description'] == 'Comma-induced anal retention'
-    assert data[0]['category_title'] == 'Malignant neoplasm of anus and anal canal'
-
+    assert data[0][
+        'category_title'] == 'Malignant neoplasm of anus and anal canal'
