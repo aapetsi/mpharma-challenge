@@ -24,9 +24,10 @@
 
 Once you have the libraries and dependencies above installed, do the following:
 
-1. Initialize the database with the following: `python3 init_db.py`
-2. Run: `python3 -m flask --app ./app.py run --debug` to start the development server in debug mode
-3. To run the test suites, run the following: `python3 -m pytest`
+1. Create a .env file based on the `.env.example` file and update it with the correct credentials
+2. Initialize the database with the following: `python3 init_db.py`
+3. Run: `python3 -m flask --app ./app.py run --debug` to start the development server in debug mode
+4. To run the test suites, run the following: `python3 -m pytest`
 
 **Additional information:**
 
