@@ -31,7 +31,8 @@ Once you have the libraries and dependencies above installed, do the following:
 **Additional information:**
 
 1. Make sure your postgres server is up and running
-2. Depending on your local installation of `python`, you can run the commands with just `python <command>`
+2. Make sure `mailhog` is up and running
+3. Depending on your local installation of `python`, you can run the commands with just `python <command>`
 
 ## Contributing
 
