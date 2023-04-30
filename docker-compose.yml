@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python app.py
+    depends_on:
+      - postgres
+      - mailhog
+    environment:
+      - DB_HOST=postgres
+      - DB_DATABASE_NAME=mpharma-dev
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - MAILHOG_HOST=mailhog
+    ports:
+      - 5000:5000
+
+  api-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: pytest
+    depends_on:
+      - postgres
+      - mailhog
+    environment:
+      - DB_HOST=postgres
+      - DB_DATABASE_NAME=mpharma-dev
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - MAILHOG_HOST=mailhog
+
+  postgres:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=mpharma-dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: 'mailhog'
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  db:

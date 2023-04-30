@@ -46,6 +46,15 @@ They both are configured as `test` and `spec` tasks with `rake`.
 4. Push feature branch to Github using `git push origin <feature-branch-name>`.
 5. Send a Pull Request on Github.
 
+## Docker
+
+You can also get started with development quickly using [Docker](https://www.docker.com/).
+
+1. Clone the repository locally using `git clone https://github.com/aapetsi/mpharma-challenge.git`
+2. Run `docker compose build`
+3. Run `docker compose up api`. A development server will be served on `http://127.0.0.1:5000`
+4. Additionally you can run the tests using `docker compose up api-test`
+
 ## Guidelines
 
 Use the following guides for getting things done, programming well, and programming in style.

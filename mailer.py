@@ -1,4 +1,5 @@
 import smtplib
+import os
 from email.mime.text import MIMEText
 
 def send_mail(user):
@@ -7,7 +8,7 @@ def send_mail(user):
   msg['From'] = 'help@icd.com'
   msg['To'] = 'john@example.com'
 
-  smtp_server = 'localhost'
+  smtp_server = os.environ['MAILHOG_HOST']
   smtp_port = 1025
 
   with smtplib.SMTP(smtp_server, smtp_port) as server:

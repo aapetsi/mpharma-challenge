@@ -10,7 +10,7 @@ from mailer import send_mail
 
 app = Flask(__name__)
 
-conn = psycopg2.connect(host='localhost',
+conn = psycopg2.connect(host=os.environ['DB_HOST'],
                         database=os.environ['DB_DATABASE_NAME'],
                         user=os.environ['DB_USERNAME'],
                         password=os.environ['DB_PASSWORD'])
@@ -141,3 +141,6 @@ def upload():
         send_mail("john@example.com")
 
     return jsonify(new_data), 201
+
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=5000, debug=True)

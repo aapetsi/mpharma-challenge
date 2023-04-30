@@ -5,7 +5,7 @@ load_dotenv()
 
 import os
 
-conn = psycopg2.connect(host='localhost',
+conn = psycopg2.connect(host=os.environ['DB_HOST'],
                         database='mpharma-dev',
                         user=os.environ['DB_USERNAME'],
                         password=os.environ['DB_PASSWORD'])
