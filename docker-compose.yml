@@ -1,5 +1,12 @@
 version: "3.9"
 
+x-environment: &commonEnvironment
+  DB_HOST: postgres
+  DB_DATABASE_NAME: mpharma-dev
+  DB_USERNAME: postgres
+  DB_PASSWORD: postgres
+  MAILHOG_HOST: mailhog
+
 services:
   api:
     build:
@@ -9,12 +16,7 @@ services:
     depends_on:
       - postgres
       - mailhog
-    environment:
-      - DB_HOST=postgres
-      - DB_DATABASE_NAME=mpharma-dev
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=postgres
-      - MAILHOG_HOST=mailhog
+    environment: *commonEnvironment
     ports:
       - 5000:5000
 
@@ -26,12 +28,7 @@ services:
     depends_on:
       - postgres
       - mailhog
-    environment:
-      - DB_HOST=postgres
-      - DB_DATABASE_NAME=mpharma-dev
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=postgres
-      - MAILHOG_HOST=mailhog
+    environment: *commonEnvironment
 
   postgres:
     image: postgres:14.1-alpine
